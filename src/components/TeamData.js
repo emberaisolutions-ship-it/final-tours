@@ -37,7 +37,7 @@ function TeamData() {
     },
     {
       name: 'Alex Irungu',
-      position: 'Compliance Officer',
+      position: 'IT Systems Developer',
       image: alex
     }
   ];

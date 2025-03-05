@@ -4,6 +4,7 @@ import { HiMenu, HiX } from 'react-icons/hi';
 import dstfinal from './shiftedfrommain/dstfinal.png';
 import SimpleLanguageSwitcher from "./SimpleLanguageSwitcher";
 import { useTranslation } from './TranslationContext';
+import untitled from './shiftedfrommain/Untitled (Logo).png'
 
 const Navbar = () => {
   const history = useHistory();
@@ -13,7 +14,7 @@ const Navbar = () => {
     home: 'Home',
     about: 'About',
     gallery: 'Gallery',
-    places: 'Places',
+    // places: 'Places',
     maps: 'Maps',
     contact: 'Contact'
   });
@@ -38,7 +39,7 @@ const Navbar = () => {
         home: 'Home',
         about: 'About',
         gallery: 'Gallery',
-        places: 'Places',
+        // places: 'Places',
         maps: 'Maps',
         contact: 'Contact'
       });
@@ -49,7 +50,7 @@ const Navbar = () => {
     { name: translations.home, path: '/' },
     { name: translations.about, path: '/about' },
     { name: translations.gallery, path: '/gallery' },
-    { name: translations.places, path: '/places' },
+    // { name: translations.places, path: '/places' },
     { name: translations.maps, path: '/maps' },
     { name: translations.contact, path: '/contact' }
   ];
@@ -71,7 +72,7 @@ const Navbar = () => {
   };
 
   return (
-    <nav className="bg-gradient-to-r from-brown-700 to-brown-900 text-white sticky top-0 z-50 shadow-lg">
+    <nav className="bg-gradient-to-r from-orange-700 to-orange-900 text-white sticky top-0 z-50 shadow-lg">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-20">
           <Link 
@@ -137,9 +138,9 @@ const Navbar = () => {
                 {item.name}
               </div>
             ))}
-            <div className="mt-4 px-3 py-2">
+            {/* <div className="mt-4 px-3 py-2">
               <SimpleLanguageSwitcher />
-            </div>
+            </div> */}
           </div>
         </div>
       )}

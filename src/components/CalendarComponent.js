@@ -2,6 +2,7 @@ import React from "react";
 import "react-calendar/dist/Calendar.css";
 import { InlineWidget } from "react-calendly";
 import { Calendar, Clock, CheckCircle, Users, MapPin, Mail } from "lucide-react";
+import { FaWhatsapp } from 'react-icons/fa';
 
 const CalendarComponent = () => {
   return (
@@ -78,24 +79,32 @@ const CalendarComponent = () => {
                   </div>
                 </div>
 
-                {/* Contact Info */}
-                <div className="space-y-6">
-                  <h3 className="text-xl font-semibold mb-4">Need Help?</h3>
-                  <div className="space-y-4">
-                    <div className="flex items-center space-x-3">
-                      <MapPin className="w-5 h-5 text-orange-200" />
-                      <span className="text-orange-100">Nairobi, Kenya</span>
-                    </div>
-                    <div className="flex items-center space-x-3">
-                      <Mail className="w-5 h-5 text-orange-200" />
-                      <span className="text-orange-100">danilscenic@gmail.com</span>
-                    </div>
-                    <div className="flex items-center space-x-3">
-                      <Users className="w-5 h-5 text-orange-200" />
-                      <span className="text-orange-100">Available 24/7</span>
-                    </div>
-                  </div>
-                </div>
+               {/* Contact Info */}
+<div className="space-y-6">
+  <h3 className="text-xl font-semibold mb-4">Need Help?</h3>
+  <div className="space-y-4">
+    <div className="flex items-center space-x-3">
+      <MapPin className="w-5 h-5 text-orange-200" />
+      <span className="text-orange-100">Nairobi, Kenya</span>
+    </div>
+    <div className="flex items-center space-x-3">
+      <Mail className="w-5 h-5 text-orange-200" />
+      <span className="text-orange-100">danilscenic@gmail.com</span>
+    </div>
+    <div className="flex items-center space-x-3">
+      <Users className="w-5 h-5 text-orange-200" />
+      <span className="text-orange-100">Available 24/7</span>
+    </div>
+    <div className="flex items-center space-x-3">
+      <FaWhatsapp className="w-5 h-5 text-orange-200" />
+      <span className="text-orange-100">
+        <a href="https://wa.me/254722919249" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">
+          WhatsApp: 254 722 919249
+        </a>
+      </span>
+    </div>
+  </div>
+</div>
               </div>
             </div>
           </div>
@@ -109,7 +118,7 @@ const CalendarComponent = () => {
             <div className="mb-4 md:mb-0">
               <p className="font-semibold text-lg">Danil Scenic Tours</p>
               <p className="text-orange-200 text-sm mt-1">
-                Your trusted safari partner since 2010
+              Explore Scenic Wonders With Us
               </p>
             </div>
             <p className="text-orange-200 text-sm">

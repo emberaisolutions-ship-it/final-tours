@@ -6,23 +6,23 @@ const MermaidBookingFlow = () => {
   
   const stepsInfo = [
     {
-      title: "Select Your Destination",
-      description: "Browse through our curated list of destinations and select the service that matches your dream vacation.",
-      icon: "🗺️"
+      title: "Select Your Booking Method",
+      description: "Visit our 'Contact Us' page, click 'Book Now', or navigate to our Services section to select your desired experience.",
+      icon: "📱"
     },
     {
-      title: "Book Now",
-      description: "Click the 'Book Now' button and send an email to danilscenic@gmail.com with your preferences.",
-      icon: "📧"
+      title: "Schedule Your Experience",
+      description: "Choose your preferred date and time, then provide your contact information to help us better serve you.",
+      icon: "📅"
     },
     {
-      title: "Collaborative Planning",
-      description: "We'll work together to craft the perfect itinerary tailored to your preferences and wishes.",
-      icon: "🤝"
+      title: "Confirm Your Booking",
+      description: "Submit your booking request, and we'll receive your inquiry immediately via our secure booking system.",
+      icon: "✓"
     },
     {
-      title: "Unforgettable Experience",
-      description: "Receive your confirmation email and prepare for a once-in-a-lifetime adventure!",
+      title: "Prepare for Your Journey",
+      description: "Get ready for an extraordinary adventure with Danil Scenic Tours, where exceptional experiences await.",
       icon: "✨"
     }
   ];

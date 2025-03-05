@@ -1,6 +1,7 @@
 import React from "react";
 import ContactForm from "./ContactForm";
-import { MapPin, Phone, Mail, Facebook, Instagram, Twitter } from "lucide-react";
+import { MapPin, Phone, Mail } from "lucide-react";
+import { FaFacebook, FaInstagram, FaTwitter, FaTiktok, FaWhatsapp } from 'react-icons/fa';
 
 const ContactUs = () => {
   return (
@@ -41,7 +42,7 @@ const ContactUs = () => {
                     <div>
                       <h3 className="font-medium text-orange-200">Phone</h3>
                       <p className="mt-1 text-white/90">+254 723 453576</p>
-                      <p className="text-white/90">+254 777 989249</p>
+                      {/* <p className="text-white/90">+254 777 989249</p> */}
                       <p className="text-white/90">+254 722 919249</p>
                     </div>
                   </div>
@@ -57,19 +58,50 @@ const ContactUs = () => {
                 </div>
                 
                 <div className="mt-12 pt-12 border-t border-orange-600">
-                  <h3 className="text-xl font-semibold mb-6">Follow Us</h3>
-                  <div className="flex space-x-4">
-                    <a href="#" className="p-2 bg-orange-600/20 rounded-full hover:bg-orange-600/30 transition-colors">
-                      <Facebook className="w-5 h-5" />
-                    </a>
-                    <a href="#" className="p-2 bg-orange-600/20 rounded-full hover:bg-orange-600/30 transition-colors">
-                      <Instagram className="w-5 h-5" />
-                    </a>
-                    <a href="#" className="p-2 bg-orange-600/20 rounded-full hover:bg-orange-600/30 transition-colors">
-                      <Twitter className="w-5 h-5" />
-                    </a>
-                  </div>
-                </div>
+  <h3 className="text-xl font-semibold mb-6">Follow Us</h3>
+  <div className="flex space-x-4">
+  <a 
+    href="https://www.facebook.com/profile.php?id=61550528048010" 
+    target="_blank" 
+    rel="noopener noreferrer" 
+    className="p-2 bg-orange-600/20 rounded-full hover:bg-orange-600/30 transition-colors"
+  >
+    <FaFacebook className="w-5 h-5" />
+  </a>
+  <a 
+    href="https://www.instagram.com/danil.scenic/" 
+    target="_blank" 
+    rel="noopener noreferrer" 
+    className="p-2 bg-orange-600/20 rounded-full hover:bg-orange-600/30 transition-colors"
+  >
+    <FaInstagram className="w-5 h-5" />
+  </a>
+  <a 
+    href="https://twitter.com/@DanilScenic" 
+    target="_blank" 
+    rel="noopener noreferrer" 
+    className="p-2 bg-orange-600/20 rounded-full hover:bg-orange-600/30 transition-colors"
+  >
+    <FaTwitter className="w-5 h-5" />
+  </a>
+  <a 
+    href="https://www.tiktok.com/@danilscenic" 
+    target="_blank" 
+    rel="noopener noreferrer" 
+    className="p-2 bg-orange-600/20 rounded-full hover:bg-orange-600/30 transition-colors"
+  >
+    <FaTiktok className="w-5 h-5" />
+  </a>
+  <a 
+    href="https://wa.me/254722919249" 
+    target="_blank" 
+    rel="noopener noreferrer" 
+    className="p-2 bg-orange-600/20 rounded-full hover:bg-orange-600/30 transition-colors"
+  >
+    <FaWhatsapp className="w-5 h-5" />
+  </a>
+</div>
+</div>
               </div>
               
               {/* Right side: Contact Form */}
@@ -88,7 +120,7 @@ const ContactUs = () => {
             <div className="mb-4 md:mb-0">
               <p className="font-semibold text-lg">Danil Scenic Tours</p>
               <p className="text-orange-200 text-sm mt-1">
-                Exploring Kenya's beauty since 2010
+              Explore Scenic Wonders With Us
               </p>
             </div>
             <p className="text-orange-200 text-sm">
