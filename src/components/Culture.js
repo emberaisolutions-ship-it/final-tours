@@ -31,35 +31,13 @@ function Culture() {
     setSelectedImage(null);
   };
 
-  // Filter images based on selected element
-  const getFilteredImages = (filter) => {
+  // Get wildlife images using the existing filter approach
+  const getFilteredWildlifeImages = (filter) => {
     if (!filter) return [];
     
     return Object.values(images).filter(img => 
       img.toLowerCase().includes(filter.toLowerCase())
     );
-  };
-  
-  // If no images match the filter or there are fewer than needed,
-  // return random images to ensure we always have something to display
-  const getImagesWithFallback = (filter, count = 6) => {
-    const filtered = getFilteredImages(filter);
-    
-    if (filtered.length >= count) {
-      return filtered.slice(0, count);
-    }
-    
-    // If we don't have enough filtered images, add random ones to make up the difference
-    const allImages = Object.values(images);
-    const randomImages = [];
-    const neededCount = count - filtered.length;
-    
-    for (let i = 0; i < neededCount; i++) {
-      const randomIndex = Math.floor(Math.random() * allImages.length);
-      randomImages.push(allImages[randomIndex]);
-    }
-    
-    return [...filtered, ...randomImages].slice(0, count);
   };
 
   return (
@@ -140,7 +118,7 @@ function Culture() {
                     </div>
 
                     <div className="grid grid-cols-2 sm:grid-cols-3 gap-4">
-                      {getFilteredImages(selectedFeature.imageFilter).slice(0, 6).map((image, index) => (
+                      {getFilteredWildlifeImages(selectedFeature.imageFilter).slice(0, 6).map((image, index) => (
                         <motion.div
                           key={index}
                           whileHover={{ scale: 1.05 }}
@@ -257,8 +235,9 @@ function Culture() {
                     </h4>
                   </div>
 
+                  {/* Use the direct images array from selectedElement */}
                   <div className="grid grid-cols-2 sm:grid-cols-3 gap-4">
-                    {getImagesWithFallback(selectedElement.imageFilter, 6).map((image, index) => (
+                    {selectedElement.images && selectedElement.images.slice(0, 6).map((image, index) => (
                       <motion.div
                         key={`${selectedElement.name}-${index}`}
                         whileHover={{ scale: 1.05 }}
@@ -289,40 +268,6 @@ function Culture() {
             )}
           </motion.div>
         </div>
-        
-        {/* Full Gallery Section */}
-        <motion.div 
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.5 }}
-          className="mt-20"
-        >
-          <h2 className="text-3xl font-bold text-amber-800 mb-8 pb-4 border-b border-amber-200">
-            Complete Visual Heritage Gallery
-          </h2>
-          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-6">
-            {Object.values(images).map((image, index) => (
-              <motion.div
-                key={index}
-                whileHover={{ scale: 1.03 }}
-                whileTap={{ scale: 0.98 }}
-                className="relative aspect-square overflow-hidden rounded-xl shadow-lg cursor-pointer group"
-                onClick={() => handleImageClick(image)}
-              >
-                <img
-                  src={image}
-                  alt={`Kenya culture item ${index + 1}`}
-                  className="w-full h-full object-cover transition duration-300 group-hover:brightness-90"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-amber-900/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end justify-start p-4">
-                  <span className="text-white text-sm font-medium transform translate-y-2 group-hover:translate-y-0 transition duration-300">
-                    View Fullscreen
-                  </span>
-                </div>
-              </motion.div>
-            ))}
-          </div>
-        </motion.div>
 
         {/* Image Modal */}
         <AnimatePresence>
