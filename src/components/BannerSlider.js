@@ -53,7 +53,7 @@ const BannerSlider = () => {
   }, []);
 
   return (
-    <div className="banner-slider relative h-[80vh] overflow-hidden">
+    <div className="banner-slider relative h-screen w-full overflow-hidden">
       {slides.map((slide, index) => (
         <div
           key={index}
@@ -64,17 +64,15 @@ const BannerSlider = () => {
         >
           <div className="overlay absolute top-0 left-0 w-full h-full bg-black/30"></div>
           
-          {/* Title at the top */}
-          <div className="absolute top-[20%] left-1/2 transform -translate-x-1/2 text-center text-white z-10 px-4">
-            <h2 className="text-3xl md:text-5xl font-bold mb-4 tracking-wider">
+          {/* Title centered */}
+          <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-center text-white z-10 px-4">
+            <h2 className="text-3xl md:text-5xl font-bold mb-6 tracking-wider">
               {slide.title}
             </h2>
-          </div>
-
-          {/* Watch Now button at the bottom */}
-          <div className="absolute bottom-[15%] left-1/2 transform -translate-x-1/2 text-center text-white z-10 px-4">
+            
+            {/* Watch Now button directly below the title */}
             <button
-              className="bg-orange-600 hover:bg-orange-700 text-white font-bold py-3 px-6 rounded-full transition-colors transform hover:scale-105 duration-300"
+              className="bg-orange-600 hover:bg-orange-700 text-white font-bold py-3 px-6 rounded-full transition-colors transform hover:scale-105 duration-300 mt-4"
               onClick={() => redirectToVideo(slide.videoLink)}
             >
               {slide.linkText}
@@ -84,20 +82,20 @@ const BannerSlider = () => {
         </div>
       ))}
 
-      <div className="navigation-buttons absolute left-4 top-1/2 transform -translate-y-1/2 z-10 flex">
-        <button
-          className="bg-gray-800 text-white p-3 rounded-full mr-2 hover:bg-gray-700 transition-colors"
-          onClick={goToPreviousSlide}
-        >
-          <FontAwesomeIcon icon={faArrowLeft} />
-        </button>
-        <button
-          className="bg-gray-800 text-white p-3 rounded-full hover:bg-gray-700 transition-colors"
-          onClick={goToNextSlide}
-        >
-          <FontAwesomeIcon icon={faArrowRight} />
-        </button>
-      </div>
+      {/* Navigation buttons positioned at the sides */}
+      <button
+        className="absolute left-6 top-1/2 transform -translate-y-1/2 z-10 bg-gray-800/50 text-white p-3 rounded-full hover:bg-gray-700 transition-colors"
+        onClick={goToPreviousSlide}
+      >
+        <FontAwesomeIcon icon={faArrowLeft} />
+      </button>
+      
+      <button
+        className="absolute right-6 top-1/2 transform -translate-y-1/2 z-10 bg-gray-800/50 text-white p-3 rounded-full hover:bg-gray-700 transition-colors"
+        onClick={goToNextSlide}
+      >
+        <FontAwesomeIcon icon={faArrowRight} />
+      </button>
     </div>
   );
 };
