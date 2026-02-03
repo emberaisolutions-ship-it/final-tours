@@ -142,7 +142,7 @@ const SearchBox = ({ onLocationSelect }) => {
   };
 
   return (
-    <div className="absolute left-4 top-4 w-80 z-[1000]" ref={searchContainerRef}>
+    <div className="py-20 absolute left-4 top-4 w-80 z-[1000]" ref={searchContainerRef}>
       <div className="relative">
         <div className="relative">
           <input

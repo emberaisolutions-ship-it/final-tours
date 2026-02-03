@@ -1,7 +1,7 @@
 //import logo from './logo.svg';
 import React from 'react';
 import { useState, } from 'react';
-import { Route, Switch, useLocation } from 'react-router-dom'
+import { Route, Switch } from 'react-router-dom'
 import './App.css';
 import Navbar from './components/Navbar';
 import About from './components/About';
@@ -33,33 +33,29 @@ import LavishSafari from './components/LavishSafari.js';
 import SevenDay from './components/SevenDay.js';
 import Reviews from './components/Reviews.js';
 import Enviro from './components/Enviro.js';
-import i18n from './i18n';
-import { I18nextProvider } from 'react-i18next'; // Import I18nextProvider
-import { TranslationProvider } from './components/TranslationContext';
+import ReviewQRCode from './components/ReviewQRCode.js';
+import TourRates from './components/TourRates.js';
+import { HelmetProvider } from 'react-helmet-async';
+import Footer from './components/Footer.js';
+import ScrollToTop from './components/ScrollToTop.js';
 
 library.add(faArrowLeft, faArrowRight);
 
 
 function App() {
   const [selectPosition, setSelectPosition] = useState(null);
-  const location = useLocation();
-  const [searchLocation, setSearchLocation] = useState(null);
+ 
 
-  const handleSearch = (searchString) => {
-    // Add your search logic here
-    console.log("Search string:", searchString);
-
-    // Example: You can update the searchLocation state based on the searchString
-    setSearchLocation(/* Logic to update the searchLocation */);
-  };  
+  
   // const isLandingPage = location.pathname === "/"
   return (
-    <TranslationProvider> {/* Wrap your app with I18nextProvider */}
+    <HelmetProvider>
+   
      <div className='App'>
     {/* {
       !isLandingPage && 
       <Navbar /> }   */}
-      
+<ScrollToTop />
      <Navbar /> 
      {/* <LanguageSwitcher /> */}
     
@@ -93,10 +89,14 @@ function App() {
       <Route path="/lavish" exact component={LavishSafari} />
       <Route path="/seven" exact component={SevenDay} />
       <Route path="/reviews" exact component={Reviews} />
+      <Route path='/qr' exact component={ReviewQRCode} />
+      <Route path ='/tours' exact component={TourRates} />
     </Switch>
     <AccessibilityTools />
+    <Footer />
     </div>
-    </TranslationProvider>
+   
+    </HelmetProvider>
   );
 }
 export default App;

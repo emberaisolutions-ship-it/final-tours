@@ -3,56 +3,98 @@
   <head>
     <meta charset="utf-8" />
     <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
-    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha512-fOzdozGbSbpasVumMEZw3V6zOJ9w7pvgbrhu3/5rCS6h3VbP0kTsMvfyke2CM/lntv9rOs++Bc1TqCY/7ZJOQ==" crossorigin="anonymous" referrerpolicy="no-referrer" /> -->
-    <!-- <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Miandra+GD:wght@400&display=swap" /> -->
-    <!-- <link
-  href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap"
-  rel="stylesheet"
-/> -->
-<!-- Add this line for Playfair Display -->
-<!-- Add this to the <head> of your HTML file -->
-  <link href="https://fonts.googleapis.com/css2?family=Lora&family=Playfair+Display&family=Merriweather&family=Raleway&family=Montserrat&display=swap" rel="stylesheet">
-<!-- Add this script to the head of your HTML file -->
-<script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js"></script>
-
-
-
-
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="theme-color" content="#000000" />
-    <meta
-      name="description"
-      content="Web site created using create-react-app"
-    />
+    <meta name="theme-color" content="#ea580c" />
+    
+    <!-- Primary Meta Tags -->
+    <title>Danil Scenic Tours | Premier Safari Tours & Wildlife Adventures in Kenya</title>
+    <meta name="title" content="Danil Scenic Tours | Premier Safari Tours & Wildlife Adventures in Kenya" />
+    <meta name="description" content="Experience unforgettable safari adventures with Danil Scenic Tours. Explore Maasai Mara, Amboseli, Lake Bogoria & more. Licensed tour operator in Kenya offering budget to luxury safari packages." />
+    <meta name="keywords" content="Kenya safari tours, Maasai Mara safari, Amboseli tours, wildlife safari, Kenya tour operator, safari packages, African safari, wildlife photography tours, cultural tours Kenya" />
+    <meta name="author" content="Danil Scenic Tours" />
+    <meta name="robots" content="index, follow" />
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://www.danilscenictours.co.ke/" />
+    <meta property="og:title" content="Danil Scenic Tours | Premier Safari Tours & Wildlife Adventures in Kenya" />
+    <meta property="og:description" content="Experience unforgettable safari adventures with Danil Scenic Tours. Explore Maasai Mara, Amboseli, Lake Bogoria & more." />
+    <meta property="og:image" content="%PUBLIC_URL%/og-image.jpg" />
+    <meta property="og:site_name" content="Danil Scenic Tours" />
+    <meta property="og:locale" content="en_US" />
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content="https://www.danilscenictours.co.ke/" />
+    <meta property="twitter:title" content="Danil Scenic Tours | Premier Safari Tours & Wildlife Adventures in Kenya" />
+    <meta property="twitter:description" content="Experience unforgettable safari adventures with Danil Scenic Tours. Explore Maasai Mara, Amboseli, Lake Bogoria & more." />
+    <meta property="twitter:image" content="%PUBLIC_URL%/twitter-image.jpg" />
+    <meta property="twitter:site" content="@DanilScenic" />
+    
+    <!-- Business Information -->
+    <meta name="geo.region" content="KE-30" />
+    <meta name="geo.placename" content="Nairobi, Kenya" />
+    <meta name="geo.position" content="-1.286389;36.817223" />
+    <meta name="ICBM" content="-1.286389, 36.817223" />
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://www.danilscenictours.co.ke/" />
+    
+    <!-- Preconnect to external domains -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Lora&family=Playfair+Display&family=Merriweather&family=Raleway&family=Montserrat&display=swap" rel="stylesheet">
+    
+    <!-- Calendly -->
+    <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js"></script>
+    
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "TourOperator",
+      "name": "Danil Scenic Tours",
+      "description": "Premier safari tour operator in Kenya offering wildlife adventures, cultural tours, and nature experiences.",
+      "url": "https://www.danilscenictours.co.ke",
+      "logo": "https://www.danilscenictours.co.ke/logo.png",
+      "image": "https://www.danilscenictours.co.ke/og-image.jpg",
+      "telephone": ["+254723453576", "+254722919249"],
+      "email": ["danilscenic@gmail.com", "safari@danilscenictours.co.ke"],
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "P.O Box 49377-00100",
+        "addressLocality": "Nairobi",
+        "addressCountry": "Kenya",
+        "postalCode": "00100"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": "-1.286389",
+        "longitude": "36.817223"
+      },
+      "areaServed": "Kenya",
+      "priceRange": "$128-$420",
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "5.0",
+        "reviewCount": "4"
+      },
+      "sameAs": [
+        "https://www.facebook.com/profile.php?id=61550528048010",
+        "https://www.instagram.com/danil.scenic/",
+        "https://twitter.com/@DanilScenic",
+        "https://www.tiktok.com/@danilscenic"
+      ]
+    }
+    </script>
+    
     <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
-    <!--
-      manifest.json provides metadata used when your web app is installed on a
-      user's mobile device or desktop. See https://developers.google.com/web/fundamentals/web-app-manifest/
-    -->
     <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
-    <!--
-      Notice the use of %PUBLIC_URL% in the tags above.
-      It will be replaced with the URL of the `public` folder during the build.
-      Only files inside the `public` folder can be referenced from the HTML.
-
-      Unlike "/favicon.ico" or "favicon.ico", "%PUBLIC_URL%/favicon.ico" will
-      work correctly both with client-side routing and a non-root public URL.
-      Learn how to configure a non-root public URL by running `npm run build`.
-    -->
-    <title>Danil Scenic</title>
   </head>
   <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>
     <div id="root"></div>
-    <!--
-      This HTML file is a template.
-      If you open it directly in the browser, you will see an empty page.
-
-      You can add webfonts, meta tags, or analytics to this file.
-      The build step will place the bundled scripts into the <body> tag.
-
-      To begin the development, run `npm start` or `yarn start`.
-      To create a production bundle, use `npm run build` or `yarn build`.
-    -->
   </body>
 </html>

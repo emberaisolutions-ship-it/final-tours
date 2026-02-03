@@ -1,7 +1,5 @@
 @import 'leaflet-routing-machine/dist/leaflet-routing-machine.css';
 
- 
-
 /* Import modern, professional fonts */
 @import url('https://fonts.googleapis.com/css2?family=Cormorant:wght@400;500;600;700&family=Source+Sans+3:wght@300;400;500;600&family=Montserrat:wght@400;500;600;700&display=swap');
 
@@ -17,16 +15,32 @@
   --font-scale-4xl: 2.25rem;   /* 36px */
 }
 
+/* Reset and base styles */
+* {
+  box-sizing: border-box;
+}
+
+html {
+  margin: 0;
+  padding: 0;
+  /* Prevent horizontal scrolling on mobile */
+  overflow-x: hidden;
+}
+
 body {
   margin: 0;
   padding: 0;
-  font-family: 'Source Sans 3', sans-serif;  /* Modern, clean body font */
-  /* background-color: #d0a657; */
+  font-family: 'Source Sans 3', sans-serif;
   min-height: 100vh;
   color: rgb(6, 2, 2);
   font-size: var(--font-scale-base);
   line-height: 1.6;
   font-weight: 400;
+  /* Prevent horizontal scrolling on mobile */
+  overflow-x: hidden;
+  /* Remove any default browser margins/padding that might affect mobile */
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
 }
 
 /* Main Headings - Using Cormorant for luxury/travel feel */
@@ -35,6 +49,9 @@ body {
   font-weight: 600;
   letter-spacing: -0.02em;
   line-height: 1.2;
+  /* Ensure headings don't cause overflow on mobile */
+  word-wrap: break-word;
+  hyphens: auto;
 }
 
 /* Secondary Headings */
@@ -43,6 +60,8 @@ body {
   font-weight: 600;
   letter-spacing: -0.01em;
   line-height: 1.3;
+  word-wrap: break-word;
+  hyphens: auto;
 }
 
 /* Navigation */
@@ -86,38 +105,38 @@ body {
   letter-spacing: 0.01em;
 }
 
-
-
-
-/* global.css or in your component file */
-
-
-/* global.css or in your component file */
- .mission-container {
-  /* Add styles specific to the mission container */
-  background-color: #f8f8f8; /* Example background color */
-  padding: 20px; /* Example padding */
-  border-radius: 8px; /* Example border radius for rounded corners */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Example box shadow for depth */
+/* Mission container styles */
+.mission-container {
+  background-color: #f8f8f8;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  /* Ensure proper spacing on mobile */
+  margin: 0 auto;
+  max-width: 100%;
 }
 
-/* Style the heading within the mission container */
- .mission-container h2 {
-  color: black; /* Example text color for the heading */
+.mission-container h2 {
+  color: black;
+  margin-top: 0; /* Remove top margin that might cause spacing issues */
 }
 
-/* Optional: Add styles for the paragraph within the mission container */
 .mission-container p {
-  margin-top: 10px; /* Example margin-top for spacing */
+  margin-top: 10px;
+  margin-bottom: 0; /* Remove bottom margin that might cause spacing issues */
 }
 
+/* Utility classes */
 .high-contrast {
   background-color: black;
   color: white;
 }
+
 .map-container {
   width: 100%;
   height: 100vh;
+  /* Ensure map doesn't cause overflow on mobile */
+  overflow: hidden;
 }
 
 .map {
@@ -129,6 +148,31 @@ body {
   background-color: yellow;
 }
 
+/* Mobile-specific fixes */
+@media (max-width: 768px) {
+  /* Ensure no unwanted margins on mobile */
+  body {
+    margin: 0;
+    padding: 0;
+  }
+  
+  /* Fix any potential font scaling issues on mobile */
+  .heading-primary {
+    font-size: clamp(1.5rem, 4vw, 2.25rem);
+  }
+  
+  .heading-secondary {
+    font-size: clamp(1.25rem, 3vw, 1.875rem);
+  }
+  
+  /* Ensure containers don't cause horizontal scroll */
+  .mission-container {
+    padding: 15px;
+    margin: 0 10px;
+  }
+}
+
+/* Tailwind imports should be at the end */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
