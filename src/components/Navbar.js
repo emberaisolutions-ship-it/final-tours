@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react';
-import { Link, useHistory, useLocation } from 'react-router-dom';
+import { Link, useNavigate, useLocation } from 'react-router-dom';
 import { HiMenu, HiX, HiPhone, HiCalendar, HiLocationMarker } from 'react-icons/hi';
 import staticLogo from './shiftedfrommain/Explore scenic wonders with us....png';
 
 const Navbar = () => {
-    const history = useHistory();
+    const navigate = useNavigate();
     const location = useLocation();
     const [isScrolled, setIsScrolled] = useState(false);
     const [mobileMenu, setMobileMenu] = useState(false);
@@ -53,7 +53,7 @@ const Navbar = () => {
     ];
 
     const handleNavigation = (path) => {
-        history.push(path);
+        navigate(path);
         setMobileMenu(false);
     };
 

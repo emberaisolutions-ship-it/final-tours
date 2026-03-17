@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 
-const API_BASE_URL = 'https://final-tours.onrender.com';
+const API_BASE_URL = process.env.REACT_APP_API_BASE_URL || 'https://final-tours.onrender.com';
 
 const usePlacesData = (searchQuery = '') => {
   const [places, setPlaces] = useState([]);
@@ -12,7 +12,6 @@ const usePlacesData = (searchQuery = '') => {
       try {
         setLoading(true);
         const url = `${API_BASE_URL}/api/places${searchQuery ? `?search=${encodeURIComponent(searchQuery)}` : ''}`;
-        console.log('Fetching places from:', url);
         
         const response = await fetch(url, {
           method: 'GET',
@@ -33,13 +32,11 @@ const usePlacesData = (searchQuery = '') => {
         if (!Array.isArray(data)) {
           throw new Error('Invalid data format received');
         }
-
-        console.log('Places fetched:', data.length);
         
         setPlaces(data);
         setError(null);
       } catch (err) {
-        console.error('Error fetching places:', err);
+        console.error('[v0] Error fetching places:', err);
         setError(err.message);
         
         // Fallback data when API fails

@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import Modal from "./Modal";
-import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
+import Modall from "./Modall";
+import { useNavigate } from "react-router-dom";
 import car from './shiftedfrommain/hireee.jpg'
 import sun from './shiftedfrommain/sun-airport.jpg'
 import excursion from './shiftedfrommain/lifeee.jpg'
@@ -14,7 +14,7 @@ function Service() {
   const [selectedServiceImage, setSelectedServiceImage] = useState(null);
   const [showModal, setShowModal] = useState(false);
   const [bookingSuccess, setBookingSuccess] = useState(false);
-  const history = useHistory(); // Use the useHistory hook
+  const navigate = useNavigate();
   const [searchLocation, setSearchLocation] = useState([-1.2921, 36.8219]);
 
 
@@ -27,18 +27,16 @@ function Service() {
   const handleBookNow = () => {
     // Simulating a booking process with a 1.5-second delay
     // Replace this with your actual booking logic (e.g., API calls, database updates, etc.)
-    console.log("Booking process initiated...");
     setTimeout(() => {
-      console.log("Booking successful!");
       setBookingSuccess(true);
       setShowModal(true);
-      history.push("/calendar"); // Replace "/calendar" with the URL of the page you want to redirect to
+      navigate("/calendar");
     }, 1500);
   };
 
   const handleBookingSuccess = () => {
     // Redirect the user to the calendar page after the booking is successful
-    history.push("/calendar");
+    navigate("/calendar");
     setBookingSuccess(false);
   };
 
@@ -130,7 +128,9 @@ function Service() {
 
         </div>
       </main>
-      <Modal showModal={showModal} handleClose={handleModalClose} />
+      <Modall isOpen={showModal} onClose={handleModalClose} title="Booking Successful">
+        <p className="text-gray-700 mb-4">Thank you for booking with us. We are excited to have you on our tour. Our team will get in touch with you shortly.</p>
+      </Modall>
     </div>
   );
 }

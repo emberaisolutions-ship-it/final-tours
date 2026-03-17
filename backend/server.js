@@ -13,7 +13,26 @@ import('node-fetch').then(module => {
 });
 
 const app = express();
-app.use(cors());
+
+// CORS Configuration
+const allowedOrigins = process.env.ALLOWED_ORIGINS 
+  ? process.env.ALLOWED_ORIGINS.split(',')
+  : ['http://localhost:3000', 'http://localhost:3001'];
+
+const corsOptions = {
+  origin: function (origin, callback) {
+    if (!origin || allowedOrigins.includes(origin)) {
+      callback(null, true);
+    } else {
+      callback(new Error('Not allowed by CORS'));
+    }
+  },
+  credentials: true,
+  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+  allowedHeaders: ['Content-Type', 'Authorization']
+};
+
+app.use(cors(corsOptions));
 app.use(express.json());
 
 const PORT = process.env.PORT || 5000;
@@ -22,7 +41,12 @@ const PORT = process.env.PORT || 5000;
 const cache = new NodeCache({ stdTTL: 3600 }); // Cache for 1 hour
 
 // RapidAPI Key - same for all APIs
-const RAPID_API_KEY = process.env.RAPID_API_KEY || 'f007273b45msha0e6fdf60c2a3bp18f8d9jsne560eb1448e7';
+const RAPID_API_KEY = process.env.RAPID_API_KEY;
+
+// Validate that required API key is set
+if (!RAPID_API_KEY) {
+  console.warn('Warning: RAPID_API_KEY environment variable is not set. API calls may fail.');
+}
 
 // API Configurations
 const APIs = {
@@ -60,46 +84,7 @@ const APIs = {
   
 };
 
-// // Add this new endpoint to your express app
-// app.post('/api/translate', async (req, res) => {
-//     const { text, targetLanguage, sourceLanguage = 'en' } = req.body;
-    
-//     try {
-//         if (!text || !targetLanguage) {
-//             throw new Error('Missing required parameters: text and targetLanguage');
-//         }
-
-//         // Construct the language pair (e.g., "en|fr" for English to French)
-//         const langPair = `${sourceLanguage}|${targetLanguage}`;
-
-//         // Make request to MyMemory API
-//         const response = await axios.get(APIs.translation.mymemory.url, {
-//             params: {
-//                 q: text,
-//                 langpair: langPair,
-//                 de: APIs.translation.mymemory.email // Optional email for increased limit
-//             }
-//         });
-
-//         if (response.data && response.data.responseStatus === 200) {
-//             return res.json({ 
-//                 translatedText: response.data.responseData.translatedText,
-//                 match: response.data.responseData.match
-//             });
-//         } else {
-//             throw new Error(response.data.responseDetails || 'Translation failed');
-//         }
-        
-//     } catch (error) {
-//         console.error('Translation error:', error);
-//         res.status(500).json({ 
-//             error: 'Translation failed', 
-//             details: error.message 
-//         });
-//     }
-// });
-
-// Add this new endpoint to your express app
+// Translation endpoint
 app.post('/translate', async (req, res) => {
     try {
         const { text, target_lang, source_lang = 'en' } = req.body;
