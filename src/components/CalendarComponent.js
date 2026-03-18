@@ -49,13 +49,12 @@ const CalendarComponent = () => {
     
     // EmailJS implementation
     emailjs.sendForm(
-      'service_8y6hkr8', // Replace with your EmailJS service ID
-      'template_vd1plci', // Replace with your EmailJS template ID
+      process.env.REACT_APP_EMAILJS_SERVICE_ID,
+      process.env.REACT_APP_EMAILJS_TEMPLATE_ID_BOOKING,
       formRef.current,
-      'BXE-qX9e_QzruN0OR' // Replace with your EmailJS public key
+      process.env.REACT_APP_EMAILJS_PUBLIC_KEY
     )
       .then((result) => {
-        console.log('Email sent successfully:', result.text);
         alert("Your request has been submitted! We'll get back to you within 24 hours.");
         setFormData({
           firstName: "",
@@ -75,7 +74,6 @@ const CalendarComponent = () => {
         });
         setShowForm(false);
       }, (error) => {
-        console.log('Email sending failed:', error.text);
         alert("There was an error submitting your request. Please try again later.");
       })
       .finally(() => {

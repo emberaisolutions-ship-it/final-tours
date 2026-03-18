@@ -38,10 +38,10 @@ const ContactForm = () => {
       };
 
       await emailjs.send(
-        'service_8y6hkr8', // Replace with your service ID
-        'template_vfhnecb', // Replace with your template ID
+        process.env.REACT_APP_EMAILJS_SERVICE_ID,
+        process.env.REACT_APP_EMAILJS_TEMPLATE_ID_CONTACT,
         templateParams,
-        'BXE-qX9e_QzruN0OR' // Replace with your public key
+        process.env.REACT_APP_EMAILJS_PUBLIC_KEY
       );
 
       setStatus({ submitting: false, error: null, success: true });

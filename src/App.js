@@ -1,7 +1,6 @@
-//import logo from './logo.svg';
 import React from 'react';
-import { useState, } from 'react';
-import { Route, Switch } from 'react-router-dom'
+import { useState } from 'react';
+import { Route, Routes } from 'react-router-dom'
 import './App.css';
 import Navbar from './components/Navbar';
 import About from './components/About';
@@ -44,54 +43,43 @@ library.add(faArrowLeft, faArrowRight);
 
 function App() {
   const [selectPosition, setSelectPosition] = useState(null);
- 
 
-  
-  // const isLandingPage = location.pathname === "/"
   return (
     <HelmetProvider>
-   
-     <div className='App'>
-    {/* {
-      !isLandingPage && 
-      <Navbar /> }   */}
-<ScrollToTop />
-     <Navbar /> 
-     {/* <LanguageSwitcher /> */}
+      <div className='App'>
+        <ScrollToTop />
+        <Navbar />
     
-    <Switch>
-      {/* <Route path="/" exact component={LandingPage} /> */}
-      {/* <Route component={Navbar} /> */}
-      
-      <Route path="/" exact component={Home} />
-      <Route path="/about" exact component={About} />
-      <Route path="/service" exact component={Service} />
-      <Route path="/gallery" exact component={Gallery} />
-        <Route path="/maps" exact component={() => <Maps selectPosition={selectPosition} setSelectPosition={setSelectPosition} />} />
-        <Route path="/search" exact component={(props) => <SearchBox {...props} setSelectPosition={setSelectPosition} />} />
-      <Route path="/faq" exact component={Faq} />
-      <Route path="/contact" exact component={ContactUs} />
-      <Route path="/calendar" exact component={CalendarComponent} />
-      <Route path="/privacy" exact component={PrivacyPolicy} /> 
-      <Route path="/places" exact component={Places} /> 
-      <Route path="/nature" exact component={Enviro} /> 
-      <Route path="/culture" exact component={Culture} /> 
-      <Route path="/section" exact component={ServiceSection} />
-      <Route path="/pricing" exact component={Pricing} />
-      <Route path="/terms" exact component={TermsAndConditions} />
-      <Route path="/review-form" exact component={ReviewForm} />
-      <Route path="/maasai-mara" exact component={MaasaiMara} />
-      <Route path="/adventure-amboseli" exact component={AdventureAmboseli} />
-      <Route path="/extensive-tour" exact component={ExtensiveTour} />
-      <Route path="/quote-form" exact component={QuoteForm} />
-      <Route path="/budget-tour" exact component={BudgetTour} />
-      <Route path="/bogoria" exact component={Bogoria} />
-      <Route path="/lavish" exact component={LavishSafari} />
-      <Route path="/seven" exact component={SevenDay} />
-      <Route path="/reviews" exact component={Reviews} />
-      <Route path='/qr' exact component={ReviewQRCode} />
-      <Route path ='/tours' exact component={TourRates} />
-    </Switch>
+    <Routes>
+      <Route path="/" element={<Home />} />
+      <Route path="/about" element={<About />} />
+      <Route path="/service" element={<Service />} />
+      <Route path="/gallery" element={<Gallery />} />
+      <Route path="/maps" element={<Maps selectPosition={selectPosition} setSelectPosition={setSelectPosition} />} />
+      <Route path="/search" element={<SearchBox setSelectPosition={setSelectPosition} />} />
+      <Route path="/faq" element={<Faq />} />
+      <Route path="/contact" element={<ContactUs />} />
+      <Route path="/calendar" element={<CalendarComponent />} />
+      <Route path="/privacy" element={<PrivacyPolicy />} />
+      <Route path="/places" element={<Places />} />
+      <Route path="/nature" element={<Enviro />} />
+      <Route path="/culture" element={<Culture />} />
+      <Route path="/section" element={<ServiceSection />} />
+      <Route path="/pricing" element={<Pricing />} />
+      <Route path="/terms" element={<TermsAndConditions />} />
+      <Route path="/review-form" element={<ReviewForm />} />
+      <Route path="/maasai-mara" element={<MaasaiMara />} />
+      <Route path="/adventure-amboseli" element={<AdventureAmboseli />} />
+      <Route path="/extensive-tour" element={<ExtensiveTour />} />
+      <Route path="/quote-form" element={<QuoteForm />} />
+      <Route path="/budget-tour" element={<BudgetTour />} />
+      <Route path="/bogoria" element={<Bogoria />} />
+      <Route path="/lavish" element={<LavishSafari />} />
+      <Route path="/seven" element={<SevenDay />} />
+      <Route path="/reviews" element={<Reviews />} />
+      <Route path="/qr" element={<ReviewQRCode />} />
+      <Route path="/tours" element={<TourRates />} />
+    </Routes>
     <AccessibilityTools />
     <Footer />
     </div>
